@@ -2,7 +2,7 @@ package de.tum.in.ase.eist;
 
 public class PreviewHashing extends Hashing {
     private SimpleHashAlgorithm simpleHashAlgorithm;
-    private int limit;
+    private final int limit;
 
     public PreviewHashing() {
         super(new SimpleHashAlgorithm());
