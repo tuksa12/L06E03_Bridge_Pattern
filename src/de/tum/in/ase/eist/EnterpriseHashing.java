@@ -1,6 +1,6 @@
 package de.tum.in.ase.eist;
 
-public class EnterpriseHashing extends Hashing{
+public class EnterpriseHashing extends Hashing {
     private CryptoSecureHashAlgorithm cryptoSecureHashAlgorithm;
 
     public EnterpriseHashing() {
@@ -14,6 +14,6 @@ public class EnterpriseHashing extends Hashing{
     }
 
     public HashFunction getImplementation() {
-        return super.getImplementation();
+        return cryptoSecureHashAlgorithm;
     }
 }

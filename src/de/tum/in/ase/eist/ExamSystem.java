@@ -41,7 +41,7 @@ public final class ExamSystem {
         Path path = Path.of(filepath);
         try {
             return Files.readString(path);
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Error");
         }
         // TODO 5: Return the content of the passed file as a String.
