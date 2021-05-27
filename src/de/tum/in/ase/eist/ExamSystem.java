@@ -40,7 +40,7 @@ public final class ExamSystem {
     public static String readFile(String filepath) {
         Path path = Path.of(filepath);
         try {
-            return path.toString();
+            return Files.readString(path);
         } catch (Exception e){
             System.out.println("Error");
         }
