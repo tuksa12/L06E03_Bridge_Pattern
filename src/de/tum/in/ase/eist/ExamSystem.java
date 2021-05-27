@@ -1,17 +1,18 @@
 package de.tum.in.ase.eist;
 
+import java.nio.file.Files;
 import java.nio.file.Path;
 
 public final class ExamSystem {
 
     // TODO 4: Change HashFunction to Hashing
-    private static HashFunction hashGenerator;
+    private static Hashing hashGenerator;
 
     private ExamSystem() {
     }
 
     public static String hashFile(String document) {
-        return hashGenerator.calculateHashCode(document);
+        return hashGenerator.hashDocument(document);
     }
 
     public static void main(String[] args) {
@@ -19,7 +20,7 @@ public final class ExamSystem {
         String file2 = readFile("exams/long_exam.txt");  //This file is too big for Preview Hashing
 
         // TODO 4: Change SimpleHash to PreviewHashing
-        hashGenerator = new SimpleHashAlgorithm();
+        hashGenerator = new PreviewHashing();
 
         System.out.println(hashFile(file1));
         try {
@@ -30,7 +31,7 @@ public final class ExamSystem {
         }
 
         // TODO 4: Change CryptoSecureHashAlgorithm to EnterpriseHashing
-        hashGenerator = new CryptoSecureHashAlgorithm();
+        hashGenerator = new EnterpriseHashing();
 
         System.out.println(hashFile(file1));
         System.out.println(hashFile(file2));
@@ -38,6 +39,11 @@ public final class ExamSystem {
 
     public static String readFile(String filepath) {
         Path path = Path.of(filepath);
+        try {
+            return path.toString();
+        } catch (Exception e){
+            System.out.println("Error");
+        }
         // TODO 5: Return the content of the passed file as a String.
         return null;
     }
